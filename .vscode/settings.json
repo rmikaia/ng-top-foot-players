@@ -1,0 +1,32 @@
+{
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "emmet.includeLanguages": {
+        "twig": "html",
+        "javascript":"javascriptreact"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "window.zoomLevel": 0,
+    "workbench.iconTheme": "vs-seti",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}

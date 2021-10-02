@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PlayersComponent } from './players/players.component';
+import { PlayerDetailComponent } from './player-detail/player-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, PlayersComponent],
+  declarations: [AppComponent, PlayersComponent, PlayerDetailComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

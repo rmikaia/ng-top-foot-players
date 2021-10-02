@@ -9,16 +9,4 @@
     <span class="badge">{{ player.id }}</span>{{ player.name }}
   </li>
 </ul>
-
-<div *ngIf="selectedPlayer">
-  <h2>{{ selectedPlayer.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ selectedPlayer.id }}</div>
-  <div>
-    <label for="player-name">Player name: </label>
-    <input
-      id="player-name"
-      [(ngModel)]="selectedPlayer.name"
-      placeholder="name"
-    />
-  </div>
-</div>
+<app-player-detail [player]="selectedPlayer"></app-player-detail>
