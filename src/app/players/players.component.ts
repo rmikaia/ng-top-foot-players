@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Player } from '../types/player';
+import { Player } from './player.type';
+import { PLAYERS } from './players.mock';
 
 @Component({
   selector: 'app-players',
@@ -7,12 +8,14 @@ import { Player } from '../types/player';
   styleUrls: ['./players.component.css'],
 })
 export class PlayersComponent implements OnInit {
-  player: Player = {
-    id: 7,
-    name: 'Cristiano Ronaldo',
-  };
+  players = PLAYERS;
+  selectedPlayer?: Player;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSelect(player: Player) {
+    this.selectedPlayer = player;
+  }
 }

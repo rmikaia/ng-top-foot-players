@@ -1,11 +1,24 @@
+<h1>Top players list</h1>
 
-<h1>{{player.name | uppercase}} details</h1>
-<div>
-  <label for="name">Name</label
-  ><input
-    type="text"
-    [(ngModel)]="player.name"
-    id="name"
-    placeholder="name"
-  />
+<ul class="players">
+  <li
+    *ngFor="let player of players"
+    (click)="onSelect(player)"
+    [class.selected]="player === selectedPlayer"
+  >
+    <span class="badge">{{ player.id }}</span>{{ player.name }}
+  </li>
+</ul>
+
+<div *ngIf="selectedPlayer">
+  <h2>{{ selectedPlayer.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ selectedPlayer.id }}</div>
+  <div>
+    <label for="player-name">Player name: </label>
+    <input
+      id="player-name"
+      [(ngModel)]="selectedPlayer.name"
+      placeholder="name"
+    />
+  </div>
 </div>
