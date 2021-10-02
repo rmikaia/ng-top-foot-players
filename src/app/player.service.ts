@@ -11,4 +11,8 @@ export class PlayerService {
   getItems() {
     return of(PLAYERS);
   }
+
+  getItem(playerId: number) {
+    return of(PLAYERS.find((player) => player.id === playerId));
+  }
 }

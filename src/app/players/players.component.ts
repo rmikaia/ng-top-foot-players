@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
 import { PlayerService } from '../player.service';
 import { Player } from '../player.type';
-import { PLAYERS } from './players.mock';
 
 @Component({
   selector: 'app-players',
@@ -11,20 +10,11 @@ import { PLAYERS } from './players.mock';
 })
 export class PlayersComponent implements OnInit {
   players: Player[] = [];
-  selectedPlayer?: Player;
 
-  constructor(
-    private playerService: PlayerService,
-    private messageService: MessageService
-  ) {}
+  constructor(private playerService: PlayerService) {}
 
   ngOnInit(): void {
     this.setupItems();
-  }
-
-  onSelect(player: Player) {
-    this.selectedPlayer = player;
-    this.messageService.add(`You've looked at ${player.name} details`);
   }
 
   setupItems() {
