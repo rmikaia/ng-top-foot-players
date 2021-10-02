@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Player } from './player.type';
+import { PlayerService } from '../player.service';
+import { Player } from '../player.type';
 import { PLAYERS } from './players.mock';
 
 @Component({
@@ -8,14 +9,22 @@ import { PLAYERS } from './players.mock';
   styleUrls: ['./players.component.css'],
 })
 export class PlayersComponent implements OnInit {
-  players = PLAYERS;
+  players: Player[] = [];
   selectedPlayer?: Player;
 
-  constructor() {}
+  constructor(private playerService: PlayerService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setupItems();
+  }
 
   onSelect(player: Player) {
     this.selectedPlayer = player;
+  }
+
+  setupItems() {
+    this.playerService.getItems().subscribe((items) => {
+      this.players = items;
+    });
   }
 }

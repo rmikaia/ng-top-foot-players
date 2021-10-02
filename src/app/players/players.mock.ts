@@ -1,4 +1,4 @@
-import { Player } from './player.type';
+import { Player } from '../player.type';
 
 export const PLAYERS: Player[] = [
   { id: 11, name: 'Cristiano Ronaldo' },
