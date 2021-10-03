@@ -1,6 +1,6 @@
 # NgTopFootPlayers
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
+This a angular training project. This about listing/searching/crud top foot players. 
 
 ## Development server
 
