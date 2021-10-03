@@ -8,6 +8,7 @@ import { PLAYERS } from './players.mock';
   providedIn: 'root',
 })
 export class PlayerService {
+  counter = 0;
   playersUrl = 'api/players';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -40,5 +41,10 @@ export class PlayerService {
       `${this.playersUrl}/${player.id}`,
       this.httpOptions
     );
+  }
+
+  search(value: string) {
+    console.log(`called ${this.counter++} times`);
+    return this.http.get<Player[]>(`${this.playersUrl}/?name=${value}`);
   }
 }
