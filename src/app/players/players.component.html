@@ -1,10 +1,21 @@
 <h1>Top players list</h1>
+<div>
+  <label for="new-player">Hero name: </label>
+  <input id="new-player" #playerName />
 
+  <button
+    class="add-button"
+    (click)="add(playerName.value); playerName.value = ''"
+  >
+    Add player
+  </button>
+</div>
 <ul class="players">
   <li *ngFor="let player of players">
     <a routerLink="/player/{{ player.id }}">
       <span class="badge">{{ player.id }}</span
       >{{ player.name }}
     </a>
+    <button class="delete" (click)="delete(player)">x</button>
   </li>
 </ul>

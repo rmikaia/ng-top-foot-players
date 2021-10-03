@@ -22,4 +22,16 @@ export class PlayersComponent implements OnInit {
       this.players = items;
     });
   }
+
+  add(name: string) {
+    this.playerService
+      .add(name)
+      .subscribe((player) => this.players.push(player));
+  }
+
+  delete(player: Player) {
+    this.playerService.delete(player).subscribe((_) => {
+      this.players = this.players.filter((p) => player.id !== p.id);
+    });
+  }
 }
