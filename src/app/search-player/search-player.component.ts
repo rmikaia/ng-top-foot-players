@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { PlayerService } from '../player.service';
 import { Player } from '../player.type';
 
@@ -8,15 +10,20 @@ import { Player } from '../player.type';
   styleUrls: ['./search-player.component.css'],
 })
 export class SearchPlayerComponent implements OnInit {
-  players?: Player[];
+  players$!: Observable<Player[]>;
+  searchTerms = new Subject<string>();
 
   constructor(private playerService: PlayerService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.players$ = this.searchTerms.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((terms) => this.playerService.search(terms))
+    );
+  }
 
   search(value: string) {
-    this.playerService.search(value.trim()).subscribe((players) => {
-      this.players = players;
-    });
+    this.searchTerms.next(value);
   }
 }
